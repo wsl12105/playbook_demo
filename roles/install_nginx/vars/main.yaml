@@ -1,0 +1,3 @@
+cpu_cores: "{{ ansible_processor_cores }}"
+listen_port: 8080
+server_name: myTestServer

@@ -1,0 +1,20 @@
+- name: replace apt source
+  copy:
+    src: source.16.04
+    dest: /etc/apt/sources.list
+    backup: yes
+- name: apt install nginx
+  apt: 
+    name: nginx 
+    state: present
+    update_cache: true
+- name: modify nginx conf
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    #backup: yes
+  loop:
+    - { src: "default.j2", dest: "/etc/nginx/sites-enabled/default" }
+    - { src: "nginx.conf.j2", dest: "/etc/nginx/nginx.conf" }
+  notify: restart nginx
+
