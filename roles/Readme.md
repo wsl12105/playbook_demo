@@ -1,6 +1,6 @@
 这是一个简单的ansible 中roles使用的demo。
 
-包含个功能文件的格式
+包含各功能文件的格式
 
 语法检查使用命令`ansible-playbook -C install_nginx.yaml`
 
